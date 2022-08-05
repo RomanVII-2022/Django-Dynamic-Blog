@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    
+    <div class="main-wrapper">
+        <!--Newsletter Subscription-->
+	    <section class="blog-list px-3 py-5 p-md-5">
+		    <div class="container">
+                <h2 class="heading">Are you sure you want to delete this post ? </h2>
+                <br/><br/>
+                <div class="item mb-5">
+				    <div class="media">
+                        {% if post.image %}
+					    <img class="mr-3 img-fluid" style="width: 220px; height: 150px; object-fit: cover;" src="{{post.image.url}}" alt="image">
+					    {% endif %}
+                        <div class="media-body">
+						    <h3 class="title mb-1"><a href="{% url 'postdetail' post.pk %}">{{post.title}}</a></h3>
+						    <div class="meta mb-1"><span class="date">By: {{post.author.first_name}} {{post.author.last_name}}</span><span class="time">Published On: {{post.created_at}}</span></div>
+								<span class="more-link"><a href="{% url 'editpost' post.pk %}">Edit</a></span>
+						    <div class="intro">{{post.body|truncatewords:70|safe}}</div>
+						    <a class="more-link" href="{% url 'postdetail' post.pk %}">Read more &rarr;</a>
+					    </div>
+				    </div>
+			    </div>
+			    <form method="POST" enctype="multipart/form-data" class="signup-form justify-content-center pt-3">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        
+                    </div>
+                    <button type="submit" class="btn btn-primary">Delete Post</button>
+                </form>
+		    </div>
+	    </section>
+        <!--endnewsletter-->
+
+	    
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    
+    <div class="main-wrapper">
+        <!--Newsletter Subscription-->
+	    <section class="cta-section theme-bg-light py-5">
+		    <div class="container">
+			    <h2 class="heading">Edit Post</h2>
+			    <form method="POST" enctype="multipart/form-data" class="signup-form justify-content-center pt-3">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{form.media}}
+                        {{form.as_p}}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Post</button>
+                </form>
+		    </div>
+	    </section>
+        <!--endnewsletter-->
+
+	    
+{% endblock %}

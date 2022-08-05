@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block navbar %}
+                <ul class="navbar-nav flex-column text-left">
+					<li class="nav-item">
+					    <a class="nav-link" href="{% url 'home' %}"><i class="fas fa-home fa-fw mr-2"></i>Home<span class="sr-only">(current)</span></a>
+					</li>
+                    <li class="nav-item active">
+					    <a class="nav-link" href="{% url 'about' %}"><i class="fas fa-user fa-fw mr-2"></i>About Us</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href=""><i class="fas fa-bookmark fa-fw mr-2"></i>Blog Post</a>
+					</li>
+				</ul>
+{% endblock %}
+
+{% block content %}
+    
+    <div class="main-wrapper"> 	    
+	    <article class="about-section py-5">
+		    <div class="container">
+			    <h2 class="title mb-3">About Us:</h2>
+			    
+			    <p>Welcome to Africa’s startup portal...</p>
+
+                <p>Afristarter Kit is a one-stop-shop for all news, information and commentary pertaining to the 
+                    continent’s tech startup – and investment – ecosystem. With journalists roaming the continent to 
+                    find, meet, and interview the most innovative and disruptive tech startups, Afristarter Kit is a 
+                    true showcase of Africa’s most promising businesses and business ideas.</p>
+
+                <p>Our readers can keep up-to-date with the quirky world of tech hubs and accelerator programmes; 
+                    and our reporters provide live coverage of the all-important tech and entrepreneurship events across 
+                    Africa. For our startup, entrepreneur, and investor friends alike, our mission is to provide practical 
+                    information and advice from across Africa’s varied vibrant markets, and to promote engaged and thought-provoking 
+                    discussion about the exciting ecosystem we belong to.</p>
+
+                <p>We are also the producers of Afristarter Kit Podcast, the fortnightly podcast dedicated to Africa’s startup 
+                    ecosystems, available on Soundcloud, Spotify, Apple Podcasts, and all other podcasting platforms. 
+                    Aside from its journalism, Afristarter Kit has also developed a research arm that releases publications tracking 
+                    the development of the African tech startup ecosystem, and Pipeline, which helps connects corporates, investors 
+                    and accelerators with innovative tech startups.</p>
+		    </div>
+	    </article>
+        <hr>
+	    
+	    <section class="cta-section theme-bg-light py-5">
+		    <div class="container text-center">
+			    <h2 class="heading">Newsletter</h2>
+			    <div class="intro">Subscribe and get our latest blog post in your inbox.</div>
+			    <form class="signup-form form-inline justify-content-center pt-3">
+                    <div class="form-group">
+                        <label class="sr-only" for="semail">Your email</label>
+                        <input type="email" id="semail" name="semail1" class="form-control mr-md-1 semail" placeholder="Enter email">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+		    </div>
+	    </section>
+    </div>
+    
+
+{% endblock %}

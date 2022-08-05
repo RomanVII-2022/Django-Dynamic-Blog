@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    
+    <div class="main-wrapper">
+        <!--Newsletter Subscription-->
+	    <section class="cta-section theme-bg-light py-5">
+		    <div class="container text-center">
+			    <h2 class="heading">Welcome to Africa’s Tech Startup – and Investment – Ecosystem Portal.</h2>
+			    <div class="intro">Subscribe and get our latest blog post in your inbox.</div>
+			    <form class="signup-form form-inline justify-content-center pt-3">
+                    <div class="form-group">
+                        <label class="sr-only" for="semail">Your email</label>
+                        <input type="email" id="semail" name="semail1" class="form-control mr-md-1 semail" placeholder="Enter email">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+		    </div>
+	    </section>
+        <!--endnewsletter-->
+
+
+        <!--Blog Posts-->
+	    <section class="blog-list px-3 py-5 p-md-5">
+		    <div class="container">
+                {% for post in object_list reversed %}
+			    <div class="item mb-5">
+				    <div class="media">
+                        {% if post.image %}
+					    <img class="mr-3 img-fluid" style="width: 220px; height: 150px; object-fit: cover;" src="{{post.image.url}}" alt="image">
+					    {% endif %}
+                        <div class="media-body">
+						    <h3 class="title mb-1"><a href="{% url 'postdetail' post.pk %}">{{post.title}}</a></h3>
+						    <div class="meta mb-1"><span class="date">By: {{post.author.first_name}} {{post.author.last_name}}</span><span class="time">Published On: {{post.created_at}}</span></div>
+							{% if user.is_authenticated %}
+								{% if post.author.id == user.id %}
+								<span class="more-link"><a href="{% url 'editpost' post.pk %}">Edit</a></span> <span class="more-link"><a href="{% url 'deletepost' post.pk %}">Delete</a></span>
+								{% endif %}
+							{% endif %}
+							<div class="intro">{{post.body|truncatewords:35|safe}}</div>
+						    <a class="more-link" href="{% url 'postdetail' post.pk %}">Read more &rarr;</a>
+					    </div>
+				    </div>
+			    </div>
+                {% endfor %}	
+		    </div>
+	    </section>
+        <!--endblog-->
+	    
+{% endblock %}
