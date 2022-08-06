@@ -9,7 +9,7 @@
 					    <a class="nav-link" href="{% url 'about' %}"><i class="fas fa-user fa-fw mr-2"></i>About Us</a>
 					</li>
 					<li class="nav-item">
-					    <a class="nav-link" href=""><i class="fas fa-bookmark fa-fw mr-2"></i>Blog Post</a>
+					    <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-bookmark fa-fw mr-2"></i>Admin</a>
 					</li>
 				</ul>
 {% endblock %}
@@ -45,9 +45,15 @@
 	    
 	    <section class="cta-section theme-bg-light py-5">
 		    <div class="container text-center">
+                {% for message in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Message: </strong> {{message}}
+                </div>
+                {% endfor %}
 			    <h2 class="heading">Newsletter</h2>
 			    <div class="intro">Subscribe and get our latest blog post in your inbox.</div>
-			    <form class="signup-form form-inline justify-content-center pt-3">
+			    <form method="POST" class="signup-form form-inline justify-content-center pt-3">
+                    {% csrf_token %}
                     <div class="form-group">
                         <label class="sr-only" for="semail">Your email</label>
                         <input type="email" id="semail" name="semail1" class="form-control mr-md-1 semail" placeholder="Enter email">

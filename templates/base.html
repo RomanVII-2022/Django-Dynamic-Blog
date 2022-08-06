@@ -37,11 +37,11 @@
 					
 					<div class="bio mb-3"><h4>Motivate . Mentor  Support</h4><br/><a href="{% url 'about' %}"><strong>Find out more about us</strong></a></div><!--//bio-->
 					<ul class="social-list list-inline py-3 mx-auto">
-			            <li class="list-inline-item"><a href="#"><i class="fab fa-youtube fa-fw"></i></a></li>
-			            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook fa-fw"></i></a></li>
-			            <li class="list-inline-item"><a href="#"><i class="fab fa-instagram fa-fw"></i></a></li>
-			            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
-			            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCQgZ_hyq7FQZ1Z4X4etSmQw"><i class="fab fa-youtube fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://www.facebook.com/Afristarterkit/"><i class="fab fa-facebook fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://www.instagram.com/afristarterkit/"><i class="fab fa-instagram fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCQgZ_hyq7FQZ1Z4X4etSmQw"><i class="fab fa-twitter fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://www.linkedin.com/in/julius-njuguna-34781b114?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAByY_ScBtbbU3Rh1mGhNy5iaXYdRUXgioac&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BPWRaARdgSJ2bLGvqqcIcDQ%3D%3D"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
 			        </ul><!--//social-list-->
 			        <hr> 
 				</div><!--//profile-section-->
@@ -61,7 +61,7 @@
                 {% endblock %}
 				
 				<div class="my-2 my-md-3">
-				    <a class="btn btn-primary" href="" target="_blank">Get in Touch</a>
+				    <a class="btn btn-primary" href="{% url 'contact' %}">Get in Touch</a>
 				</div>
 			</div>
 		</nav>
@@ -72,7 +72,8 @@
         <div class="">
             <a href="{% url 'addpost' %}"> Add Blog </a> -   
             <a href="{% url 'register' %}"> Register</a> - 
-            <a href="{% url 'logout' %}"> Logout</a> 
+            <a href="{% url 'sendmail' %}"> Send Newsletters</a> - 
+            <a href="{% url 'logout' %}"> Logout</a>
         </div>
         {% endif %}
              

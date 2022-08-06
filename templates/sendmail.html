@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    
+    <div class="main-wrapper">
+	    <section class="cta-section theme-bg-light py-5">
+		    <div class="container">
+                {% for message in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Message: </strong> {{message}}
+                </div>
+                {% endfor %}
+			    <h2 class="heading">Send Newsletters</h2>
+			    <form method="POST" enctype="multipart/form-data" class="signup-form justify-content-center pt-3">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{form.media}}
+                        {{form.as_p}}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Mail</button>
+                </form>
+		    </div>
+	    </section>
+    </div>
+    
+
+	    
+{% endblock %}
