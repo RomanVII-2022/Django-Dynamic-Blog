@@ -23,6 +23,6 @@ urlpatterns = [
     path('editpost/edit/<int:pk>', EditPostView.as_view(), name='editpost'),
     path('deletepost/<int:pk>', DeletePostView.as_view(), name='deletepost'),
     path('aboutus', AboutView, name='about'),
-    path('sendmail', MailMessageView.as_view(), name='sendmail'),
+    path('sendmail', MailMessageView, name='sendmail'),
     path('getintouch', ContactView.as_view(), name='contact'),
 ]

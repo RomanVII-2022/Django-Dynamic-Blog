@@ -59,11 +59,32 @@ def AboutView(request):
     return render(request, 'about.html')
 
 
-class MailMessageView(SuccessMessageMixin, CreateView):
-    model = MailMessage
-    form_class = MailMessageForm
-    template_name = 'sendmail.html'
-    success_message = "Newsletters have been sent successfully"
+def MailMessageView(request):
+    emails = Subscriber.objects.all()
+    df = read_frame(emails, fieldnames=['email'])
+    mail_list = df['email'].values.tolist()
+    
+    form = MailMessageForm()
+    if request.method == "POST":
+        form = MailMessageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            title = form.cleaned_data.get('title')
+            body = form.cleaned_data.get('body')
+
+            send_mail(
+                title,
+                body,
+                '',
+                mail_list,
+                fail_silently=False,
+            )
+            messages.success(request, "Message sent successfully")
+            return redirect('sendmail')
+    else:
+        form = MailMessageForm()
+    
+    return render(request, 'sendmail.html', {'form':form})
 
     
 

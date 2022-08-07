@@ -34,7 +34,7 @@ class Subscriber(models.Model):
 
 class MailMessage(models.Model):
     title = models.CharField(max_length=300)
-    body = RichTextField()
+    body = models.TextField()
 
 
     def __str__(self):
